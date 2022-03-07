@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<body>
+	<a href="{% url 'home' %}" class="btn btn-sm">Go Back!!!</a>
+    <form method="POST" action="{% url 'deleteimg' context.id %}" >
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-sm" >Delete</button>
+    </form>
+    <img src="{{context.image_path.url}}" alt="Smiley face" width="200" height="150">
+    <img src="{{context.detected_image.url}}" alt="ml-image" width="200" height="150">
+    <p> {{context.teeth_score}} </p>
+    <br>
+</body>
+</html>
